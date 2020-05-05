@@ -1,6 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import { Table } from "antd";
+import useGetPostAll from "./hooks/usePost";
 
 const columns = [
   {
@@ -37,17 +38,7 @@ const columns = [
   },
 ];
 
-const dummy = [
-  {
-    id: "1",
-    title: "첫 글",
-    author: "eminem",
-    date: "04.20",
-    count: 300,
-    recommend: 20,
-  },
-];
-
 export default function Board() {
-  return <Table columns={columns} dataSource={dummy} />;
+  const posts = useGetPostAll();
+  return <Table columns={columns} dataSource={posts} />;
 }
